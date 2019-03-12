@@ -61,6 +61,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li class="last"><a href="">个人中心</a></li>
+                                    <li class="last"><a href="/venue/create">创建场馆</a></li>
+                                    <li class="last"><a href="">我的场馆</a></li>
+                                    <li class="last"><a href="">设置头像</a></li>
                                     <li class="last">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -79,7 +83,15 @@
                 </div>
             </div>
         </nav>
-
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @yield('content')
     </div>
 

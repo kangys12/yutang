@@ -8,4 +8,8 @@ class Venue extends Model
 {
     //
     protected $guarded=["id"];
+
+    public function type(){
+        return $this->belongsTo('App\Type');
+    }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <ul class="list_group">
+            <ul class="list_group sty">
                 @foreach($types as $type)
                     <li><img src="/images/icon.jpg"><a href="/venue/type/{{$type->id}}">{{$type->name}}</a></li>
                 @endforeach
@@ -51,6 +51,7 @@
                             <img src="/images/menu_icon.jpg">
                         </div>
                         <div>
+                            
                             <h5 style="display: inline-block">网球俱乐部</h5>
                             <img src="/images/menu_icon.jpg">
                         </div>
