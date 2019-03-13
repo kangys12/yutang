@@ -35,6 +35,20 @@ Route::get('/photo/set', 'UserController@set');
 Route::post('/photo/bao', 'UserController@bao');
 
 
+Route::get('/venue/follow/{id}', 'VenueController@follow');
+Route::get('/venue/unfollow/{id}', 'VenueController@unfollow');
+
+
+Route::get('/venue/my_follows', 'VenueController@my_follows');
+
+Route::get('/price/set/{id}', 'PriceController@set');
+Route::post('/price/save', 'PriceController@save');
+
+
+
+
+
+
 
 
 

@@ -21,6 +21,13 @@
                         <div class="media-body">
                             <h4 class="media-heading"><a href="/venue/detail/{{$venue->id}}">{{$venue->name}}</a></h4>
                             <p>{{$venue->des}}</p>
+                            <p>
+                                @if($venue->isfollowed())
+                                    <a href="/venue/unfollow/{{$venue->id}}">取消关注</a>
+                                @else
+                                <a href="/venue/follow/{{$venue->id}}">关注</a>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 @endforeach

@@ -55,6 +55,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <li class="user_icon"> <img   src="{{asset('upload/'. \Auth::user()->icon)}}"></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -63,7 +64,9 @@
                                 <ul class="dropdown-menu">
                                     <li class="last"><a href="">个人中心</a></li>
                                     <li class="last"><a href="/venue/create">创建场馆</a></li>
-                                    <li class="last"><a href="">我的场馆</a></li>
+                                    <li class="last"><a href="/venue/my_follws">我的场馆</a></li>
+                                    <li class="last"><a href="/venue/my_follows">我的收藏</a></li>
+
                                     <li class="last"><a href="">设置头像</a></li>
                                     <li class="last">
                                         <a href="{{ route('logout') }}"
@@ -97,5 +100,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/base.js') }}"></script>
+
 </body>
 </html>

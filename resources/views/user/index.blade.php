@@ -1,6 +1,4 @@
-
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -22,6 +20,7 @@
                         <form method="post" action="/photo/bao" enctype="multipart/form-data">
                             {{csrf_field()}}
                            <div class="form-group">
+                               <img src="/upload/{{\Auth::user()->icon}}" style="width: 100px;margin-bottom: 20px">
                                上传头像：<input type="file" name="icon">
                            </div>
                             <div class="form-group">

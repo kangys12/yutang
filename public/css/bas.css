@@ -42,3 +42,9 @@ body{
     margin: 0;
     border: none;
 }
+.navbar-nav .user_icon img{
+    width: 45px;
+}
+.navbar-nav .user_icon{
+    padding-top: 6px;
+}
