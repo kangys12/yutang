@@ -5,15 +5,7 @@
     <div class="container">
         <div class="row" style="padding-top: 20px">
             <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-info">个人中心</div>
-                    <ul class="list_group ul-t">
-                        <li class="list-group-item"><a href="">我的收藏</a></li>
-                        <li class="list-group-item"><a href="/venue/create">创建场馆</a></li>
-                        <li class="list-group-item info"><a href="/venue/show">我的场馆</a></li>
-                        <li class="list-group-item"><a href="">设置头像</a></li>
-                    </ul>
-                </div>
+                <side_bar></side_bar>
             </div>
             <div class="col-md-9">
                 <div class="panel panel-info">

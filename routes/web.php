@@ -44,6 +44,9 @@ Route::get('/venue/my_follows', 'VenueController@my_follows');
 Route::get('/price/set/{id}', 'PriceController@set');
 Route::post('/price/save', 'PriceController@save');
 
+Route::post('/order/save', 'OrderController@save');
+
+
 
 
 
