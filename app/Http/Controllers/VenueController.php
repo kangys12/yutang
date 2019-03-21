@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\Type;
 use \App\Venue;
 use \App\Price;
+use \App\Order;
 use PhpParser\Node\Expr\Array_;
 
 class VenueController extends Controller
@@ -14,39 +15,7 @@ class VenueController extends Controller
 
 
 
-//    private function get_time_list(){
-//        $arr=[];
-//        for ($i=9;$i<24;$i++){
-//            $arr[$i]=$i;
-//        }
-//        return $arr;
-//    }
-//
-//    private function get_date_field_list($id){
-//        $venue=Venue::find($id);
-//        $num=$venue->num;
-//        $days=$this->get_date_list();
-//        $list=[];
-//        $field_arr=[];
-//        for($i=1;$i<=$num;$i++){
-//            $field_arr[]=$i;
-//        }
-//        for($i=0;$i<count($days);$i++){
-//            $day=$days[$i]['date'];
-//            $list[$day]=$field_arr;
-//        }
-//
-//        $price=$this->get_time_price($id);
-//        return $list;
-//
-//    }
-//    private function get_time_price($venue_id){
-//        $venue=Venue::find($venue_id);
-//
-//        $price=$venue->prices;
-//
-//        //dd($price);
-//    }
+
 //==========================================================================
 
     public function list($id){
@@ -80,44 +49,63 @@ class VenueController extends Controller
     {
         $days=$this->get_dates();
         $arr=[];
+
         for($i=0;$i<count($days);$i++){
             $day=$days[$i]['date'];
-            $arr[$day]=$this->get_field_list($id);
+            $order_date=$day;
+            $arr[$day]=$this->get_field_list($id,$order_date);
         }
         //dd($arr);
         return $arr;
     }
     //2.获取场地列表
-    private function get_field_list($venue_id)
+    private function get_field_list($venue_id,$order_date)
     {
         $venue=Venue::find($venue_id);
         $num=$venue->num;
         $arr=[];
         for($i=1;$i<=$num;$i++){
-            $arr[$i]=$this->get_time_prices($venue_id);
+            $field=$i;
+            $arr[$i]=$this->get_time_prices($venue_id,$order_date,$field);
         }
         return $arr;
     }
     //3.获取时间和价格列表
-    private function get_time_prices($venue_id)
+    private function get_time_prices($venue_id,$order_date,$field)
     {
         $venue=Venue::find($venue_id);
         $prices=$venue->prices->toArray();
         $arr=[];
         for($i=0;$i<count($prices);$i++){
-            $arr[$i]['time']=$prices[$i]['time'];
-            $arr[$i]['price']=$prices[$i]['price'];
+            $order_time = $prices[$i]["time"];
+            $price = $prices[$i]["price"];
+           //$arr[$i]['time']=$prices[$i]['time'];
+            $arr[$order_time]["price"]=$price;
+            $arr[$order_time]["is_ordered"]= $this->is_ordered($venue_id,$order_date,$field,$order_time);
+            //$arr[$i]['price']=$prices[$i]['price'];
         }
         return $arr;
     }
+
+    private function is_ordered($venue_id,$order_date,$field,$order_time){
+//        dd($venue_id,$order_date,$order_time,$field);
+      // echo $venue_id."##".$order_date."##".$field."##".$order_time."<br>";
+        return (bool) Order::where("venue_id",$venue_id)
+            ->where("order_date",$order_date)
+            ->where("field",$field)
+            ->where("order_time",$order_time)
+            ->first();
+    }
+
     public function detail($id)
     {
         $dates=$this->get_dates();
         $times=$this->get_time_list();
         $date_fields=$this->get_date_list($id);
+        $today=date('Y-m-d',time());
         $venue = Venue::find($id);
         $types = Type::all();
-        return view("venue/detail",compact("venue","types","dates","times","date_fields"));
+        return view("venue/detail",compact("venue","types","dates","times","date_fields",'today'));
     }
 
 

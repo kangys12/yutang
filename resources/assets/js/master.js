@@ -8,7 +8,22 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-require('./base');
+require('./responsive');
+
+// 引入vue-router
+import VueRouter from "vue-router";
+
+// 调用vue-router
+Vue.use(VueRouter);
+
+// 引入 router路由配置文件
+import router from "./routes.js";
+
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
 
 
 /**
@@ -17,10 +32,15 @@ require('./base');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('side_bar', require('./components/Side_bar'));
+Vue.component('parent-tab', require('./components/ParentTab'));
+Vue.component('child', require('./components/Child'));
+Vue.component('types', require('./components/Types'));
+
+
+
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });

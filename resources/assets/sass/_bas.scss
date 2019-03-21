@@ -176,6 +176,9 @@ ul {
 .venue_detail .day_list .tab li.selected{
     background-color: #00c8c8;
 }
+.venue_detail .day_list .tab li.ordered{
+    background-color: #ccc;
+}
 .venue_detail .day_list .tab-item{
     padding: 0 27px;float: left;
 }

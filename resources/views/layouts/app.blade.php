@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bas.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('css/bas.css') }}" rel="stylesheet">--}}
 
 </head>
 <body>
@@ -100,7 +100,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/base.js') }}"></script>
+    {{--<script src="{{ asset('js/base.js') }}"></script>--}}
 
 </body>
 </html>

@@ -8333,270 +8333,53 @@ button.close {
   }
 }
 
-body {
-  background-color: #fff;
-}
-
-dl,
-dt,
-dt {
+html,
+body,
+ul {
   margin: 0;
   padding: 0;
 }
 
 ul {
   list-style: none;
-  margin-top: 0;
-  margin-bottom: -4px;
 }
 
-.my_navbar {
-  background-color: #00c8c8;
-  margin-bottom: 0;
+html,
+body,
+.main {
+  height: 100vh;
 }
 
-.my_navbar .navbar-nav li > a {
-  color: #fff;
-}
-
-.my_navbar .navbar-brand {
-  color: #fff;
-}
-
-.sty li {
-  list-style: none;
-  line-height: 90px;
-  margin-right: 30px;
-  padding-left: 30px;
-  float: left;
-}
-
-.sty li img {
-  margin-right: 15px;
-}
-
-.my_navbar .navbar-nav .dropdown .last a {
-  color: #5e5d5d;
-}
-
-.media_item {
-  padding: 20px 0;
-  margin-top: 0;
-  border-bottom: 1px #ccc solid;
-}
-
-.media_item h4 {
-  font-size: 20px;
-  padding: 15px 0;
-}
-
-.media_item:first-child {
+.main .tab {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   border-top: 1px #ccc solid;
 }
 
-.ul-t {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-
-.navbar-nav .user_icon img {
-  width: 45px;
-}
-
-.navbar-nav .user_icon {
-  padding-top: 6px;
-}
-
-/*.venue_detail .order_wrap{padding-top: 30px}*/
-
-/*.venue_detail .venue_header{height:60px;background-color: #00c8c8;padding-top: 2px;padding-left: 10px}*/
-
-/*.venue_detail .venue_header dl.active {background-color: #fff;*/
-
-/*color:#00c8c8}*/
-
-/*.venue_detail .venue_header dl{float: left;width: 110px;color:#fff;text-align: center;height: 58px;cursor:pointer; }*/
-
-/*.venue_detail .venue_header dt{line-height:28px}*/
-
-/*.venue_detail .venue_header dd{line-height: 24px}*/
-
-/*.venue_detail .venue_body, .venue_detail .date_list{*/
-
-/*display: inline-block;*/
-
-/*margin-top: 15px;*/
-
-/*margin-right: 15px;*/
-
-/*}*/
-
-/*.venue_detail .time{*/
-
-/*display: inline-block;*/
-
-/*}*/
-
-/*.venue_detail .time li{*/
-
-/*list-style: none;*/
-
-/*margin-right: 27px;*/
-
-/*line-height: 20px;*/
-
-/*float: right;*/
-
-/*}*/
-
-/*.venue_detail  .venue_body  .dis{*/
-
-/*!*display: block;*!*/
-
-/*}*/
-
-/*.date_list .show{*/
-
-/*display: none;*/
-
-/*}*/
-
-.venue_detail .order_wrap {
-  padding-top: 30px;
-}
-
-.venue_detail .venue_header {
-  height: 60px;
-  background-color: #00c8c8;
-  padding-top: 2px;
-  padding-left: 10px;
-}
-
-.venue_detail .venue_header dl.active {
+.main .tab li {
+  width: 25%;
+  height: 1.1rem;
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: .3rem;
   background-color: #fff;
-  color: #00c8c8;
 }
 
-.venue_detail .venue_header dl {
-  float: left;
-  width: 110px;
-  color: #fff;
-  text-align: center;
-  height: 58px;
-  cursor: pointer;
-}
-
-.venue_detail .venue_header dt {
-  line-height: 28px;
-}
-
-.venue_detail .venue_header dd {
-  line-height: 24px;
-}
-
-.venue_detail .day_list {
-  display: none;
-  /*display: block;*/
-}
-
-.venue_detail .active {
-  display: block;
-}
-
-.venue_detail .time_list {
-  height: 40px;
-  padding-left: 120px;
-  border-bottom: 1px #ccc solid;
-}
-
-.venue_detail .time_list li {
-  float: left;
-  width: 45px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-}
-
-.venue_detail .day_list .tab {
-  height: 35px;
-  float: left;
-  line-height: 35px;
-  width: 100%;
-}
-
-.venue_detail .day_list .tab li {
-  cursor: pointer;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  border-right: 1px #ccc solid;
-  float: left;
-  padding: 0 13px;
-}
-
-.venue_detail .day_list dl {
-  border-bottom: 1px #ccc solid;
-  border-left: 1px #ccc solid;
-}
-
-.venue_detail .day_list dt {
-  height: 35px;
-  line-height: 35px;
-  border-bottom: 1px #999 solid;
-  background-color: #ccc;
-}
-
-.venue_detail .day_list .tab li.selected {
-  background-color: #00c8c8;
-}
-
-.venue_detail .day_list .tab li.ordered {
-  background-color: #ccc;
-}
-
-.venue_detail .day_list .tab-item {
-  padding: 0 27px;
-  float: left;
-}
-
-.order_box {
-  height: 460px;
-  padding-left: 10px;
-  border: 1px #ccc solid;
-}
-
-.order_box .order-detail .template {
-  display: none;
-}
-
-.order_box .order-detail .item {
-  font-size: 16px;
-  width: 100px;
-  height: 50px;
-  float: left;
-  text-align: center;
-  border-radius: 4px;
-  margin: 10px;
-  border: 1px #ccc solid;
-}
-
-.order_box .order-detail .item dt {
-  background-color: #00c8c8;
-  color: #fff;
-}
-
-.order-btn {
-  position: absolute;
-  bottom: 5px;
-}
-
-.order-btn h5 {
-  float: left;
-}
-
-.order-btn button {
-  position: absolute;
-  right: 5px;
+.main .tab li.active {
+  color: royalblue;
 }
 

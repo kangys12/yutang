@@ -1,0 +1,35 @@
+html, body,ul {
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+html,body,.main{
+    height: 100vh;
+}
+.main {
+    .tab{
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        border-top: 1px #ccc solid;
+
+    }
+    .tab li{
+        width: 25%;
+        height: 1.1rem;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: .3rem;
+        background-color: #fff;
+
+    }
+    .tab li.active{
+        color: royalblue;
+    }
+}

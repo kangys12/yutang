@@ -11,6 +11,7 @@ class OrderController extends Controller
     public function save(Request $request){
         //return $request;
         //$date=date('Y-m-d : H-m-s',time());
+
         for($i=0;$i<count($request->list);$i++){
             $order=new Order();
             $order->user_id=\Auth::id();

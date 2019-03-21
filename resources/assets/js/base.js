@@ -51,7 +51,9 @@ $(function () {
 
     })
 
-    $('.tab ul').find('li').click(function () {
+    $('.tab ul').find('li:not(.ordered)').click(function () {
+
+
         $field=$(this).attr('data-field');
         $time=$(this).attr('data-time');
         $mark=$time+"_"+$field;
@@ -59,6 +61,12 @@ $(function () {
             $(this).removeClass('selected')
             $('.order-detail dl[mark='+$mark+']').remove();
         } else {
+
+            $selected_length=$('.tab ul li.selected').length;
+            if ($selected_length==4){
+                $('#my_modal').modal();
+                return false;
+            }
             $(this).addClass('selected')
             //console.log($field,$time);
             var item=$('.template').html();
@@ -96,11 +104,12 @@ $(function () {
             obj.order_time=temp[0];
             list.push(obj);
            // console.log(mark_str);
-
-
         })
         //console.log(list);
         order.list=list;
+        if (order==''){
+            return;
+        }
         $.ajax({
             url:"http://www.yutang.test/order/save",
             type:"POST",

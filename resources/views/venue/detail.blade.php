@@ -43,9 +43,8 @@
                                     <dt class="tab-item">场地编号{{$field}}</dt>
                                     <dd>
                                         <ul>
-                                        @foreach($time_list as $price)
-                                            <li data-field="{{$field}}" data-time="{{$price['time']}}">{{$price['price']}}</li>
-
+                                        @foreach($time_list as $time=>$price)
+                                            <li data-field="{{$field}}" data-time="{{$time}}" @if($price['is_ordered']) class="ordered" @endif>{{$price['price']}}</li>
                                         @endforeach
                                         </ul>
                                     </dd>
@@ -64,59 +63,36 @@
                         <dd class="dd">场地：</dd>
                     </dl>
                 </div>
-
                 <div class="order_box">
                     <div>
                         <input type="hidden" value="{{$venue->id}}" class="venue_id"/>
-
                         <p>订单类型：羽毛球</p>
-                        <p>订单时间：<span class="order-date">2019-3-15</span></p>
+                        <p>订单时间：<span class="order-date">{{$today}}</span></p>
                     </div>
                     <div class="order-detail">
-
                     </div>
                     <div class="order-btn">
                         <h5>总价</h5>
                         <button style="position: absolute; right: -200px" class="btn btn-default order_btn">下单</button>
                     </div>
-
                 </div>
-
             </div>
         </div>
-        {{--<div class="row order_wrap">--}}
-            {{--<div class="col-md-9">--}}
-                {{--<div class="venue_header">--}}
-                    {{--@foreach($datas as $data)--}}
-                        {{--<dl>--}}
-                            {{--<dt>{{$data['date']}}</dt>--}}
-                            {{--<dd>{{$data['week']}}</dd>--}}
-                        {{--</dl>--}}
-                    {{--@endforeach--}}
-                {{--</div>--}}
-
-                {{--<div class="venue_body">--}}
-                    {{--<ul class="time hide">--}}
-                        {{--@foreach($times as $time)--}}
-                            {{--<li>{{$time}}</li>--}}
-                        {{--@endforeach--}}
-                    {{--</ul>--}}
-                    {{--@foreach($fields as $key=>$datas)--}}
-                        {{--<div class="date_list hide">--}}
-                            {{--{{$key}}--}}
-                            {{--@foreach($datas as $data)--}}
-                                {{--<div class="dis">--}}
-                                    {{--{{$data}}--}}
-                                {{--</div>--}}
-                            {{--@endforeach--}}
-
-                        {{--</div>--}}
-                        {{--@endforeach--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
-            {{--<div class="col-md-3"></div>--}}
-
+        <div class="modal fade bs-example-modal-sm" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        亲，一次最多选择4个时段
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </div>
+
 @endsection

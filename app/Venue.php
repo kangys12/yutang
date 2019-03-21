@@ -15,17 +15,12 @@ class Venue extends Model
     public function users(){
         return $this->belongsToMany('App\User');
     }
-
     public function isfollowed(){
         return (bool) Follow::where('user_id', \Auth::id())
             ->where('venue_id', $this->id)
             ->first();
     }
-
-
-
     public function prices(){
-
         return $this->hasMany('App\Price');
     }
 
