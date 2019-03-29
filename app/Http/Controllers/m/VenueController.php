@@ -8,7 +8,14 @@ use App\Http\Controllers\Controller;
 use App\Venue;
 class VenueController extends Controller
 {
-    //
+    //搜索
+
+    public function search(Request $request){
+//        return $request;
+        $value=$request->value;
+        $venues=Venue::where('name',"like","%".$value."%")->paginate(10);
+        return $venues;
+    }
     public function my_list(){
         $venues= Venue::paginate(10);
         //$res=$venues->all();
@@ -43,7 +50,6 @@ class VenueController extends Controller
     }
 
     private function get_dates(){
-
         $arr=[];
         $week=Array('周日','周一','周二','周三','周四','周五','周六');
         for($i=0;$i<7;$i++){
@@ -52,6 +58,5 @@ class VenueController extends Controller
             $arr[$i]['week']=$week[$day];
         }
         return $arr;
-
     }
 }

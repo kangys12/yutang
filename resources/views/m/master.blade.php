@@ -16,8 +16,7 @@
 </head>
 <body>
     <div id="app" class="main">
-        <router-view></router-view>
-        <parent-tab></parent-tab>
+        <app></app>
     </div>
 
     <!-- Scripts -->

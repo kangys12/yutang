@@ -21,6 +21,7 @@
     import bus from '../bus';
     export default {
         name: "Venue",
+        // props:['item'],
         data(){
             return {
                 venues:[],

@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "vant": "^1.6.10",
+        "vee-validate": "^2.2.0",
         "vue-router": "^3.0.2"
     }
 }

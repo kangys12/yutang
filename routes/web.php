@@ -46,19 +46,14 @@ Route::post('/price/save', 'PriceController@save');
 
 Route::post('/order/save', 'OrderController@save');
 
+require_once ('mroutes.php');
 
-Route::get('/m', function (){
-    return view('/m/master');
-});
 
-Route::get('/venue/my_list','m\VenueController@my_list');
-Route::get('/venue/types', 'm\VenueController@type');
 
-Route::get('/venue/get_type/{id}', 'm\VenueController@get_type');
 
-Route::get('/m/venue/detail/{id}', 'm\VenueController@detail');
 
-Route::post('/m/user/save', 'm\UserController@save');
+
+
 
 
 

@@ -1,13 +1,9 @@
 <template>
     <div>
-        <van-nav-bar
-                title="场馆详情"
-                left-text="返回"
-                right-text=""
-                left-arrow
-                @click-left="onClickLeft"
-                @click-right="onClickRight"
-        />
+        <van-nav-bar title="标题" left-text="返回" left-arrow  @click-left="onClickLeft"
+                     @click-right="onClickRight">
+            <van-icon name="search" slot="right" />
+        </van-nav-bar>
         <div class="detail">
             <dl class="item">
                 <dt><img src="/images/list_icon.jpg"/></dt>
@@ -25,15 +21,19 @@
                 <div class="type">{{venue.type_name}}</div>
                 <div class="dates_wrap">
                     <div class="dates">
-                        <dl v-for="(item,index) in dates" :class="{active:cur_index==index}" @click="fn(index)">
+                        <dl v-for="(item,index) in dates" :class="{active:cur_index==index}" @click="fn(index,item)">
                             <dt>{{item.week}}</dt>
                             <dd>{{item.date}}</dd>
+                            <dd class="ac">充足</dd>
                         </dl>
                     </div>
                 </div>
-
-
             </div>
+        </div>
+        <div>
+            <van-cell title="单元格" is-link  value="内容" />
+            <van-cell title="单元格" is-link  value="内容" />
+            <van-cell title="单元格" is-link  value="内容" />
         </div>
     </div>
 </template>
@@ -43,15 +43,14 @@
         name: "Detail",
         data(){
           return{
-              venue_id:'',
+              venue_id:'96',
               venue:{},
               dates:[],
               cur_index:0
           }
         },
         created(){
-            this.venue_id=this.$route.params.id;
-
+            //this.venue_id=this.$route.params.id;
             axios.get('/m/venue/detail/'+this.venue_id).then(res=>{
                 this.venue=res.data;
                 this.dates=res.data.dates;
@@ -62,10 +61,12 @@
                 this.$router.push('/venue')
             },
             onClickRight() {
-                Toast('按钮');
+                this.$router.push('/search')
             },
-            fn(index){
+            fn(index,date){
                 this.cur_index=index;
+                this.$router.push({name:'order',params:{id:this.venue.id,dates:this.dates,date:date}})
+                //this.$router.push({path:'/order/'+this.venue.id})
             }
         }
     }
@@ -145,6 +146,9 @@
     .dates .active{
         border: 1px royalblue solid;
         color: royalblue;
+    }
+    .dates .ac{
+        color: aquamarine;
     }
     .van-nav-bar{
         background-color: royalblue;

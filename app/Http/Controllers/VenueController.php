@@ -12,10 +12,6 @@ use PhpParser\Node\Expr\Array_;
 class VenueController extends Controller
 {
 
-
-
-
-
 //==========================================================================
 
     public function list($id){
@@ -88,8 +84,6 @@ class VenueController extends Controller
     }
 
     private function is_ordered($venue_id,$order_date,$field,$order_time){
-//        dd($venue_id,$order_date,$order_time,$field);
-      // echo $venue_id."##".$order_date."##".$field."##".$order_time."<br>";
         return (bool) Order::where("venue_id",$venue_id)
             ->where("order_date",$order_date)
             ->where("field",$field)
@@ -107,8 +101,6 @@ class VenueController extends Controller
         $types = Type::all();
         return view("venue/detail",compact("venue","types","dates","times","date_fields",'today'));
     }
-
-
 //==========================================================================
 //    public function detail($id){
 //
