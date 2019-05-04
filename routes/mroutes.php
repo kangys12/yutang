@@ -41,3 +41,9 @@ Route::post('/m/game/save', 'm\GameController@save');
 
 Route::get('/m/game/dates', 'm\GameController@dates');
 
+Route::get('/m/game/join/{id}', 'm\GameController@join');
+
+Route::get('/m/game/my_create_games', 'm\GameController@my_create_games');
+
+
+

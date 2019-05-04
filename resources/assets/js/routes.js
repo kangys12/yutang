@@ -64,8 +64,21 @@ let routes=[
         component:require("./components/CreateGame")
     },
     {
+        path:"/my_create_games",
+        component:require("./components/MyCreateGames")
+    },
+    {
+        path:"/my_join_games",
+        component:require("./components/MyJoinGames")
+    },
+    {
         path:"/game_list",
         component:require("./components/GameList")
+    },
+    {
+        path:"/game_detail",
+        name:"game_detail",
+        component:require("./components/GameDetail")
     }
 
 

@@ -13,8 +13,8 @@
         <div>
             <van-cell title="单元格" is-link />
             <van-cell title="我的订单" is-link to="/my_orders" />
-            <van-cell title="单元格" is-link  value="内容" />
-            <van-cell title="单元格" is-link  value="内容" />
+            <van-cell title="我创建的活动" is-link to="/my_create_games" />
+            <van-cell title="我参与的活动" is-link to="/my_join_games" />
             <van-cell title="单元格" is-link  value="内容" />
         </div>
     </div>

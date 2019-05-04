@@ -36,16 +36,32 @@ class GameController extends Controller
     }
     private function get_list($date){
 
-        $games=Game::all();
-        $list=[];
+        $games=Game::where('game_date','like','%'.$date.'%')->get();
+
         foreach ($games as $k=>$game){
-            $arr=$game->game_date;
-            $arr=explode(' ',$arr);
-            if ($date==$arr[0]){
-                $list[]= $game;
-            }
+            $games[$k]['user']=$game->user;
+            $games[$k]['venue']=$game->venue;
+            $games[$k]['join_num']=count($game->users);
         }
-        return $list;
+//        $list=[];
+//        foreach ($games as $k=>$game){
+//            $arr=$game->game_date;
+//            $arr=explode(' ',$arr);
+//            if ($date==$arr[0]){
+//                $list[]= $game;
+//            }
+//        }
+        return $games;
+    }
+    public function join($id){
+        //return $id;
+        Auth::user()->games()->attach($id);
+
+        return '1';
+    }
+    public function my_create_games(){
+
+        return Auth::user()->my_create_games;
     }
 
 }

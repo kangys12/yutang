@@ -30,4 +30,10 @@ class User extends Authenticatable
     public function venues(){
         return $this->belongsToMany('App\Venue');
     }
+    public function games(){
+        return $this->belongsToMany('App\Game');
+    }
+    public function my_create_games(){
+        return $this->hasMany('App\Game');
+    }
 }
